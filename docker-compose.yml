@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+        server:
+                build: ./sql-server
+                ports:
+                        - "3306:3306"
+
