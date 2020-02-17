@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS PDF;
+
+USE PDF;
+
+CREATE TABLE IF NOT EXISTS PDFFile(
+  FileID long PRIMARY KEY AUTO_INCREMENT
+ ,Name varchar(50)
+ ,Author varchar(50)
+ ,URL varchar(255)
+);
+
+CREATE TABLE IF NOT EXISTS PDFHistory(
+  HistoryID long NOT NULL PRIMARY KEY AUTO_INCREMENT
+ ,BookID long
+ ,Created Date
+ ,FOREIGN KEY (BookID) REFERENCES PDFFile(FileID)
+);
