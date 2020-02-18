@@ -4,4 +4,6 @@ services:
                 build: ./sql-server
                 ports:
                         - "3306:3306"
+                volumes:
+                        - ./sql-server/data_volume:/var/lib/mysql
 
