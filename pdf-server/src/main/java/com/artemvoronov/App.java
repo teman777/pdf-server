@@ -1,13 +1,14 @@
 package com.artemvoronov;
+import com.artemvoronov.entity.*;
+import com.artemvoronov.service.*;
 
-/**
- * Hello world!
- *
- */
-public class App 
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        BookService bookService = new BookService();
+        Book book = new Book();
+
     }
 }

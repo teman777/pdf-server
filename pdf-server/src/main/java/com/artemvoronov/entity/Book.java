@@ -1,4 +1,12 @@
-class Book{
+package com.artemvoronov.entity;
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="book")
+public class Book{
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String author;
@@ -9,6 +17,8 @@ class Book{
 		this.author = author;
 		this.url = url;
 	}
+
+	public Book(){}
 
 	public Book(String name, String author){
 		this.name = name;
@@ -25,7 +35,7 @@ class Book{
 
 	public String getAuthor(){
 		return this.author;
-	}	
+	}
 
 	public int getId(){
 		return this.id;

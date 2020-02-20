@@ -1,5 +1,12 @@
+package com.artemvoronov.entity;
 import java.util.Date;
-class BookMark{
+import javax.persistence.*;
+
+@Entity
+@Table(name="bookmark")
+public class BookMark{
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private int bookId;
 	private Date date;
