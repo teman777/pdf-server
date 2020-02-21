@@ -1,6 +1,6 @@
 package com.artemvoronov.entity;
 import javax.persistence.*;
-
+import java.util.Set;
 
 @Entity
 @Table(name="book")
@@ -12,6 +12,8 @@ public class Book{
 	private String author;
 	private String url;
 
+	@OneToMany(mappedBy="book")
+	private Set<BookMark> bookmarks;
 	public Book(String name, String author, String url){
 		this.name = name;
 		this.author = author;
