@@ -2,19 +2,20 @@ package com.artemvoronov.entity;
 import java.util.Date;
 import javax.persistence.*;
 
+
 @Entity
 @Table(name="bookmark")
 public class BookMark{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private int bookId;
-	private Date date;
+	private Date createdDate;
+	@ManyToOne
+	private Book book;
 
-
-	public BookMark(int bookId, Date date){
-		this.bookId = bookId;
-		this.date = date;
+	public BookMark(Date date, Book book){
+		this.createdDate = date;
+		this.book = book;
 	}
 
 	public BookMark(){
@@ -24,20 +25,22 @@ public class BookMark{
 		return this.id;
 	}
 
-	public int getBookId(){
-		return this.bookId;
+	
+	public Book getBook(){
+		return book;
 	}
 
-	public Date getDate(){
-		return date;
+	public void setBook(Book book){
+		this.book = book;
+	}
+	public Date getCreatedDate(){
+		return createdDate;
 	}
 
-	public void setBookId(int bookId){
-		this.bookId = bookId;
-	}
+	
 
-	public void setDate(Date date){
-		this.date = date;
+	public void setCreatedDate(Date date){
+		this.createdDate = date;
 	}
 
 }
