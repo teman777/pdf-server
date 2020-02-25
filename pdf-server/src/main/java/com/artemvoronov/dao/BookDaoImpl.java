@@ -36,6 +36,8 @@ public class BookDaoImpl implements BookDao {
 
 
 
+
+
   public List<Book> findAll(){
     List<Book> books = (List<Book>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From Book").list();
     return books;
