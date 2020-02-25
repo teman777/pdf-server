@@ -1,9 +1,6 @@
 package com.artemvoronov.dao;
 
 import com.artemvoronov.entity.Book;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import com.artemvoronov.HibernateSessionFactoryUtil;
 import java.util.List;
 
 

@@ -34,13 +34,11 @@ public class BookDaoImpl implements BookDao {
     session.close();
   }
 
-
-
-
-
   public List<Book> findAll(){
     List<Book> books = (List<Book>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From Book").list();
     return books;
   }
+
+  
 
 }

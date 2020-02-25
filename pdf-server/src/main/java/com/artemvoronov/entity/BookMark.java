@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name="bookmark")
 public class BookMark{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Date createdDate;
 	@ManyToOne
@@ -25,7 +25,7 @@ public class BookMark{
 		return this.id;
 	}
 
-	
+
 	public Book getBook(){
 		return book;
 	}
@@ -37,7 +37,7 @@ public class BookMark{
 		return createdDate;
 	}
 
-	
+
 
 	public void setCreatedDate(Date date){
 		this.createdDate = date;
