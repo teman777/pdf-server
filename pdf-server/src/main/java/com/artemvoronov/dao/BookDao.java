@@ -10,4 +10,5 @@ public interface BookDao{
   public void update(Book book);
   public void delete(Book book);
   public List<Book> findAll();
+  public BookMark findMarkById(int id);
 }

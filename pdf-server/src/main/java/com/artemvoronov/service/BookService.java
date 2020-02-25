@@ -28,6 +28,10 @@ public class BookService {
     bookDao.update(book);
   }
 
+  public BookMark findBookMarkById(int id){
+    return bookDao.findMarkById(id);
+  }
+
   public List<Book> findAllBooks(){
     return bookDao.findAll();
   }

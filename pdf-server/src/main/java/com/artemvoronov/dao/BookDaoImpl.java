@@ -39,6 +39,10 @@ public class BookDaoImpl implements BookDao {
     return books;
   }
 
-  
+  public BookMark findMarkById(int id) {
+    return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(BookMark.class, id);
+  }
+
+
 
 }
