@@ -8,6 +8,7 @@ public class App
     {
       BookService bookService = new BookService();
       Book book = new Book("sdf","dsf","/url/url/");
+      book.addBookMark(new BookMark());
       bookService.saveBook(book);
     }
 }

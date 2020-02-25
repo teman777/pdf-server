@@ -11,6 +11,7 @@ public class BookMark{
 	private int id;
 	private Date createdDate;
 	@ManyToOne
+	@JoinColumn(name="bookId")
 	private Book book;
 
 	public BookMark(Date date, Book book){

@@ -15,9 +15,9 @@ public class Book{
 
 	@OneToMany(
 		cascade = CascadeType.ALL,
-		orphanRemoval = true,
-		mappedBy="bookId"
+		orphanRemoval = true
 		)
+	@JoinColumn(name="bookId")
 	private List<BookMark> bookmarks = new ArrayList<>();
 	public Book(String name, String author, String url){
 		this.name = name;

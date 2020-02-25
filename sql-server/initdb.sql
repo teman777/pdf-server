@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS book(
 CREATE TABLE IF NOT EXISTS bookmark(
 	id int PRIMARY KEY AUTO_INCREMENT
        ,bookId int
-       ,dateCreated date
+       ,createdDate date
       ,FOREIGN KEY (bookId) REFERENCES book(id) ON DELETE CASCADE
 );
 commit;

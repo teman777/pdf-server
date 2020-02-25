@@ -1,8 +1,7 @@
 package com.artemvoronov.service;
 
 import com.artemvoronov.dao.*;
-import com.artemvoronov.entity.Book;
-
+import com.artemvoronov.entity.*;
 import java.util.List;
 
 public class BookService {

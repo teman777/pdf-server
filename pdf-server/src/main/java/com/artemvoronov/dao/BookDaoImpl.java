@@ -1,5 +1,5 @@
 package com.artemvoronov.dao;
-import com.artemvoronov.entity.Book;
+import com.artemvoronov.entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.artemvoronov.HibernateSessionFactoryUtil;

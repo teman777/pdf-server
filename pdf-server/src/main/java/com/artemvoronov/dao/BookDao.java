@@ -1,6 +1,6 @@
 package com.artemvoronov.dao;
 
-import com.artemvoronov.entity.Book;
+import com.artemvoronov.entity.*;
 import java.util.List;
 
 
