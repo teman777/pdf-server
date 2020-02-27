@@ -41,6 +41,7 @@ public class HibernateConfig {
 
   }
 
+  @Bean
   public LocalSessionFactoryBean getSessionFactory() {
     LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
     sessionFactory.setDataSource(getDataSource());

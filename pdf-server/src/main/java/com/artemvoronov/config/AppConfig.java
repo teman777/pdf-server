@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(value={"com.bytestree"})
+@ComponentScan(value={"com.artemvoronov"})
 public class AppConfig {
 
 }
