@@ -4,34 +4,13 @@ import com.artemvoronov.dao.*;
 import com.artemvoronov.entity.*;
 import java.util.List;
 
-public class BookService {
-  private BookDao bookDao;
 
-  public BookService(){
-    bookDao = new BookDaoImpl();
-  }
 
-  public Book findBook(int id){
-    return bookDao.findById(id);
-  }
-
-  public void saveBook(Book book){
-    bookDao.save(book);
-  }
-
-  public void deleteBook(Book book){
-    bookDao.delete(book);
-  }
-
-  public void updateBook(Book book){
-    bookDao.update(book);
-  }
-
-  public BookMark findBookMarkById(int id){
-    return bookDao.findMarkById(id);
-  }
-
-  public List<Book> findAllBooks(){
-    return bookDao.findAll();
-  }
+public interface BookService {
+  public Book findBook(int id);
+  public void saveBook(Book book);
+  public void deleteBook(Book book);
+  public void updateBook(Book book);
+  public BookMark findBookMarkById(int id);
+  public List<Book> findAllBooks();
 }
