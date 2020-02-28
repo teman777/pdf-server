@@ -1,6 +1,7 @@
 package com.artemvoronov.entity;
 import java.util.Date;
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity
@@ -11,6 +12,7 @@ public class BookMark{
 	private int id;
 	private Date createdDate;
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name="bookId")
 	private Book book;
 
@@ -24,6 +26,10 @@ public class BookMark{
 
 	public int getId(){
 		return this.id;
+	}
+
+	public void setId(int id){
+		this.id = id;
 	}
 
 

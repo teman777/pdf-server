@@ -19,16 +19,14 @@ public class BookController {
   private BookService bookService;
 
   @RequestMapping(value = "/book",
-                  method = RequestMethod.GET,
-                  produces = "application/json",
-                  headers={"content-type=application/json"})
+                  method = RequestMethod.GET)
   public List<Book> getBooks() {
     return bookService.findAllBooks();
   }
 
   @RequestMapping(value = "/book/{id}",
-                  method = RequestMethod.GET,
-                  produces = "application/json")
+                  method = RequestMethod.GET
+                  )
   public Book getBooks(@PathVariable int id) {
     return bookService.findBook(id);
   }

@@ -60,6 +60,9 @@ public class Book{
 	public int getId(){
 		return this.id;
 	}
+	public void setId(int id){
+		this.id = id;
+	}
 
 	public String getUrl(){
 		return this.url;
