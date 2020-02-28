@@ -44,7 +44,7 @@ public class Book{
 		this.url = url;
 	}
 
-	public void addBookMark(BookMark bookmark){
+	public void addBookmark(BookMark bookmark){
 		bookmark.setBook(this);
 		this.bookmarks.add(bookmark);
 	}
