@@ -7,6 +7,7 @@
   <groupId>com.artemvoronov</groupId>
   <artifactId>pdf-server</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
 
   <name>pdf-server</name>
 
@@ -26,6 +27,11 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
+      <version>5.2.4.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
       <version>5.2.4.RELEASE</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
@@ -81,7 +87,7 @@
 
 	    <configuration>
 	      <executable>java</executable>
-	      <mainClass>com.artemvoronov.Main</mainClass>
+	      
 	    </configuration>
 	</plugin>
         <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
