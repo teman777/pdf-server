@@ -16,7 +16,8 @@ public class Book{
 
 	@OneToMany(
 		cascade = CascadeType.ALL,
-		orphanRemoval = true
+		orphanRemoval = true,
+		fetch=FetchType.EAGER
 		)
 	@JoinColumn(name="bookId")
 	private List<BookMark> bookmarks;

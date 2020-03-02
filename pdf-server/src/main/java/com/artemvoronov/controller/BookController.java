@@ -1,6 +1,7 @@
 package com.artemvoronov.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 import com.artemvoronov.entity.*;
 import com.artemvoronov.service.BookService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +24,7 @@ public class BookController {
 
   @RequestMapping(value = "/book", method = RequestMethod.GET)
   public ResponseEntity<List<Book>> getBooks() {
-    List<Book> books = bookService.findAllBooks();
-    if(books == null){
-      return ResponseEntity.notFound().build();
-    }
-    return ResponseEntity.ok().body(books);
+    return ResponseEntity.ok().body(bookService.findAllBooks());
   }
 
   @RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
@@ -39,6 +36,7 @@ public class BookController {
     return ResponseEntity.ok().body(book);
   }
 
+ 
   @RequestMapping(value = "/book", method = RequestMethod.PATCH)
   public ResponseEntity<Book> patchBook(@RequestParam int id, @RequestParam String name, @RequestParam String author) {
     Book book = bookService.findBook(id);
