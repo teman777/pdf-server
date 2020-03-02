@@ -1,6 +1,6 @@
 package com.artemvoronov.dao;
 
-import com.artemvoronov.entity.*;
+import com.artemvoronov.entity.Book;
 import java.util.List;
 
 
@@ -10,5 +10,5 @@ public interface BookDao{
   public void update(Book book);
   public void delete(Book book);
   public List<Book> findAll();
-  public BookMark findMarkById(int id);
+
 }

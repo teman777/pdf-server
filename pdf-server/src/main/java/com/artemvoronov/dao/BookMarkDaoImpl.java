@@ -25,13 +25,18 @@ public class BookMarkDaoImpl implements BookMarkDao {
 
   @Override
   public List<BookMark> findAll(){
-    return (List<BookMark>) sessionFactory.openSession().createQuery("From BookMark").list();
-
+    Session session = sessionFactory.openSession();
+    List<BookMark> bookmarks = session.createQuery("From BookMark").list();
+    session.close();
+    return bookmarks;
   }
 
   @Override
   public BookMark findById(int id){
-    return sessionFactory.openSession().get(BookMark.class, id);
+    Session session = sessionFactory.openSession();
+    BookMark bookmark = session.get(BookMark.class, id);
+    session.close();
+    return bookmark;
   }
 
   @Override

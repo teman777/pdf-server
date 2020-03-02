@@ -2,6 +2,8 @@ package com.artemvoronov.entity;
 import javax.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 @Table(name="book")
@@ -17,8 +19,9 @@ public class Book{
 		cascade = CascadeType.ALL,
 		orphanRemoval = true
 		)
-	@JoinColumn(name="bookId")
-	private List<BookMark> bookmarks = new ArrayList<>();
+	@JoinColumn(name="bookId", nullable=true)
+	@JsonInclude(value=Include.NON_EMPTY)
+	private List<BookMark> bookmarks;
 	public Book(String name, String author, String url){
 		this.name = name;
 		this.author = author;
@@ -28,7 +31,11 @@ public class Book{
 	public Book(){}
 
 	public void setBookmarks(List<BookMark> bookmarks){
-		this.bookmarks = bookmarks;
+		if(bookmarks == null || bookmarks.size() == 0){
+			this.bookmarks = null;
+		} else {
+			this.bookmarks = bookmarks;
+		}
 	}
 
 	public List<BookMark> getBookmarks(){
@@ -46,11 +53,21 @@ public class Book{
 
 	public void addBookmark(BookMark bookmark){
 		bookmark.setBook(this);
+		if(bookmarks == null){
+			bookmarks = new ArrayList<>();
+		}
 		this.bookmarks.add(bookmark);
 	}
 
 	public String getName(){
 	       return this.name;
+	}
+
+	public void setName(String name){
+	       this.name = name;
+	}
+	public void setAuthor(String author){
+	       this.author = author;
 	}
 
 	public String getAuthor(){

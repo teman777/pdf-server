@@ -1,6 +1,7 @@
 package com.artemvoronov.dao;
 
-import com.artemvoronov.entity.*;
+import com.artemvoronov.entity.Book;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
@@ -16,7 +17,10 @@ public class BookDaoImpl implements BookDao {
 
   @Override
   public Book findById(int id){
-    return sessionFactory.openSession().get(Book.class, id);
+    Session session = sessionFactory.openSession();
+    Book book = session.get(Book.class, id);
+    session.close();
+    return book;
   }
   @Override
   public void save(Book book){
@@ -44,13 +48,12 @@ public class BookDaoImpl implements BookDao {
   }
   @Override
   public List<Book> findAll(){
-    List<Book> books = (List<Book>) sessionFactory.openSession().createQuery("From Book").list();
+    Session session = sessionFactory.openSession();
+    List<Book> books = (List<Book>) session.createQuery("From Book").list();
+    session.close();
     return books;
   }
-  @Override
-  public BookMark findMarkById(int id) {
-    return sessionFactory.openSession().get(BookMark.class, id);
-  }
+
 
   public void setSessionFactory(SessionFactory sessionFactory){
     this.sessionFactory = sessionFactory;

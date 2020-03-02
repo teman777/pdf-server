@@ -64,14 +64,24 @@
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
+      <artifactId>jackson-core</artifactId>
       <version>2.10.2</version>
    </dependency>
+   <dependency>
+     <groupId>com.fasterxml.jackson.core</groupId>
+     <artifactId>jackson-annotations</artifactId>
+     <version>2.10.2</version>
+  </dependency>
    <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
     <version>2.10.2</version>
-</dependency>
+  </dependency>
+  <dependency>
+   <groupId>com.fasterxml.jackson.datatype</groupId>
+   <artifactId>jackson-datatype-hibernate5</artifactId>
+   <version>2.10.2</version>
+ </dependency>
 
 
 
@@ -88,7 +98,7 @@
 		<version>2.2</version>
 		<configuration>
 			<url>http://localhost:8080/manager/text</url>
-			<server>TomcatServer</server>
+			<server>tomcatDeploy</server>
 			<path>/myapp</path>
 		</configuration>
 	</plugin>
