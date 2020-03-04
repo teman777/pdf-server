@@ -1,6 +1,7 @@
 package com.artemvoronov.controller;
 
 import java.util.List;
+import java.util.Arrays;
 import java.util.ArrayList;
 import com.artemvoronov.entity.*;
 import com.artemvoronov.service.BookService;
@@ -8,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.nio.charset.StandardCharsets;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -67,6 +70,11 @@ public class BookController {
       return ResponseEntity.notFound().build();
     }
     bookService.deleteBook(bookService.findBook(id));
+    return ResponseEntity.ok().build();
+  }
+
+  @RequestMapping(value="/book/{id}/uploadFile", method=RequestMethod.POST)
+  public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable int id){
     return ResponseEntity.ok().build();
   }
 
