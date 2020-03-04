@@ -51,6 +51,10 @@ public class BookServiceImpl implements BookService{
   }
 
   @Override
+  public void deleteBookMark(BookMark bookmark){
+    bookMarkDao.delete(bookmark);
+  }
+  @Override
   public void updateBook(Book book){
     bookDao.update(book);
   }
@@ -65,10 +69,9 @@ public class BookServiceImpl implements BookService{
     bookMarkDao.save(bookmark);
   }
 
-  @Transactional
+
   @Override
   public List<Book> findAllBooks(){
-
     return bookDao.findAll();
   }
 }

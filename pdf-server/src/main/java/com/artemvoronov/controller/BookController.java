@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -36,7 +37,7 @@ public class BookController {
     return ResponseEntity.ok().body(book);
   }
 
- 
+
   @RequestMapping(value = "/book", method = RequestMethod.PATCH)
   public ResponseEntity<Book> patchBook(@RequestParam int id, @RequestParam String name, @RequestParam String author) {
     Book book = bookService.findBook(id);
@@ -68,6 +69,9 @@ public class BookController {
     bookService.deleteBook(bookService.findBook(id));
     return ResponseEntity.ok().build();
   }
+
+
+
 
 
 }

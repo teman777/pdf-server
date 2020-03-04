@@ -14,4 +14,5 @@ public interface BookService {
   public void updateBook(Book book);
   public BookMark findBookMarkById(int id);
   public List<Book> findAllBooks();
+  public void deleteBookMark(BookMark bookmark);
 }
