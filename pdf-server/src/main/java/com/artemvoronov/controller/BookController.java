@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.nio.charset.StandardCharsets;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,7 @@ public class BookController {
   }
 
 
-  @RequestMapping(value = "/book", method = RequestMethod.PATCH)
+  @RequestMapping(value = "/book", method=RequestMethod.PATCH)
   public ResponseEntity<Book> patchBook(@RequestParam int id, @RequestParam String name, @RequestParam String author) {
     Book book = bookService.findBook(id);
     if(book == null){
@@ -57,24 +56,23 @@ public class BookController {
     return ResponseEntity.ok().build();
   }
 
-  @RequestMapping(value="/book",
-                 method = RequestMethod.POST)
+  @RequestMapping(value="/book", method=RequestMethod.POST)
   public ResponseEntity addBook(@RequestBody Book book){
     bookService.saveBook(book);
     return ResponseEntity.ok().build();
   }
 
-  @RequestMapping(value="/book/{id}", method = RequestMethod.DELETE)
-  public ResponseEntity deleteBook(@PathVariable int id){
+  @RequestMapping(value="/book/{id}", method=RequestMethod.DELETE)
+  public ResponseEntity<String> deleteBook(@PathVariable int id){
     if(bookService.findBook(id) == null){
-      return ResponseEntity.notFound().build();
+      return new ResponseEntity("Not found book with ID: " + id, HttpStatus.NOT_FOUND);
     }
     bookService.deleteBook(bookService.findBook(id));
     return ResponseEntity.ok().build();
   }
 
   @RequestMapping(value="/book/{id}/uploadFile", method=RequestMethod.POST)
-  public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable int id){
+  public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file, @PathVariable int id){
     return ResponseEntity.ok().build();
   }
 
