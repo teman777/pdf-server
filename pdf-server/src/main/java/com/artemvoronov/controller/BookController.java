@@ -66,14 +66,14 @@ public class BookController {
   public ResponseEntity<String> deleteBook(@PathVariable int id){
     if(bookService.findBook(id) == null){
       return new ResponseEntity("Not found book with ID: " + id, HttpStatus.NOT_FOUND);
-    }
-    bookService.deleteBook(bookService.findBook(id));
+    } 
+    bookService.deleteBook(bookService.findBook(id));  
     return ResponseEntity.ok().build();
   }
 
   @RequestMapping(value="/book/{id}/uploadFile", method=RequestMethod.POST)
   public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file, @PathVariable int id){
-    return ResponseEntity.ok().build();
+      return ResponseEntity.ok().body(file.getSize());
   }
 
 

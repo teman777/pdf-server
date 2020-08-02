@@ -2,6 +2,7 @@ package com.artemvoronov.service;
 
 import com.artemvoronov.dao.BookMarkDao;
 import com.artemvoronov.dao.BookDao;
+import com.artemvoronov.dao.FileDao;
 import com.artemvoronov.entity.*;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ public class BookServiceImpl implements BookService{
 
   @Autowired
   private BookMarkDao bookMarkDao;
+
+  @Autowired
+  private FileDao fileDao;
+
 
   public void setBookDao(BookDao bookMarkDao){
     this.bookDao = bookDao;
